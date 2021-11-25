@@ -6,7 +6,7 @@
 
 ---
 
-![House](https://github.com/th14g0cust0d10/imagens/blob/main/House-Valuation.png)
+![House](HouseValuation.png)
 
 A empresa precisa de um relatório que demonstre que os dados são confiáveis e coerentes e que a qualidade da informação que eles oferecem pode ser usada para modelos de previsão de fraudes e valor do imóvel. Sendo assim apresentaremos um DQR – Data Quality Report.
 
