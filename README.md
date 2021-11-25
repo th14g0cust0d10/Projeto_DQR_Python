@@ -1,0 +1,1 @@
+# Projeto_DQR_Python
