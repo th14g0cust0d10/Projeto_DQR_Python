@@ -1,5 +1,4 @@
 # **DQR – Data Quality Report**
-
 *Portfólio Thiago Gonçalves Custódio*
 
 ---
