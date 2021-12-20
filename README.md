@@ -2,9 +2,9 @@
 
 *Portfólio Thiago Gonçalves Custódio*
 
-## **Definição do Problema**
-
 ---
+
+## **Definição do Problema**
 
 ![House](HouseValuation.png)
 
