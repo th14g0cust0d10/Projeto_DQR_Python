@@ -1,11 +1,10 @@
 # **DQR – Data Quality Report**
 *Portfólio Thiago Gonçalves Custódio*
+![House](HouseValuation.png)
 
 ---
 
 ## **Definição do Problema**
-
-![House](HouseValuation.png)
 
 A empresa precisa de um relatório que demonstre que os dados são confiáveis e coerentes e que a qualidade da informação que eles oferecem pode ser usada para modelos de previsão de fraudes e valor do imóvel. Sendo assim apresentaremos um DQR – Data Quality Report.
 
