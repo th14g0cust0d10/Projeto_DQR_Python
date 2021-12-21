@@ -14077,7 +14077,7 @@ memory usage: 261.5+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.2-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas.">4.2 Sum&#225;rio das vari&#225;veis categ&#243;ricas.<a class="anchor-link" href="#4.2-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas.">&#182;</a></h3>
+<h3 id="4.2-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas">4.2 Sum&#225;rio das vari&#225;veis categ&#243;ricas<a class="anchor-link" href="#4.2-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -16561,8 +16561,8 @@ Name: EXTOT, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 17</strong> \
-Nome da Variável: ZIP \
-Descrição: Código postal das propriedades</p>
+<strong>Nome da Variável</strong>: ZIP \
+<strong>Descrição</strong>: Código postal das propriedades</p>
 
 </div>
 </div>
@@ -17699,225 +17699,6 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># % Sumário das variáveis apos data munging/wrangling</span>
-<span class="n">summ_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">summ_df</span><span class="p">[</span><span class="s1">&#39;Tipo de Dado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">values</span>
-<span class="n">summ_df</span><span class="p">[</span><span class="s1">&#39;# Registros Não Nulos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
-<span class="n">summ_df</span><span class="p">[</span><span class="s1">&#39;% Populado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">summ_df</span><span class="p">[</span><span class="s1">&#39;# Registros Não Nulos&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">summ_df</span><span class="p">[</span><span class="s1">&#39;# Valores Únicos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_temp</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
-<span class="n">summ_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;% Populado&#39;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[80]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Tipo de Dado</th>
-      <th># Registros Não Nulos</th>
-      <th>% Populado</th>
-      <th># Valores Únicos</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>BBLE</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>985951</td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>5</td>
-    </tr>
-    <tr>
-      <th>YEAR</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>PERIOD</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>BLDDEPTH</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>618</td>
-    </tr>
-    <tr>
-      <th>BLDFRONT</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>610</td>
-    </tr>
-    <tr>
-      <th>ZIP</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>194</td>
-    </tr>
-    <tr>
-      <th>STADDR</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>815655</td>
-    </tr>
-    <tr>
-      <th>EXTOT</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>59005</td>
-    </tr>
-    <tr>
-      <th>EXLAND</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>31041</td>
-    </tr>
-    <tr>
-      <th>AVTOT</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>101913</td>
-    </tr>
-    <tr>
-      <th>AVLAND</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>64744</td>
-    </tr>
-    <tr>
-      <th>FULLVAL</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>88259</td>
-    </tr>
-    <tr>
-      <th>STORIES</th>
-      <td>float64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>110</td>
-    </tr>
-    <tr>
-      <th>LTDEPTH</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>1083</td>
-    </tr>
-    <tr>
-      <th>LTFRONT</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>1071</td>
-    </tr>
-    <tr>
-      <th>TAXCLASS</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <th>BLDGCL</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>186</td>
-    </tr>
-    <tr>
-      <th>OWNER</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>847158</td>
-    </tr>
-    <tr>
-      <th>LOT</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>6251</td>
-    </tr>
-    <tr>
-      <th>BLOCK</th>
-      <td>int64</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>13750</td>
-    </tr>
-    <tr>
-      <th>VALTYPE</th>
-      <td>object</td>
-      <td>985951</td>
-      <td>100.00</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
 <div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
@@ -17958,6 +17739,13 @@ dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.3-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-num&#233;ricas-ap&#243;s-data-munging/wrangling">5.3 Sum&#225;rio estat&#237;stico das vari&#225;veis num&#233;ricas ap&#243;s data munging/wrangling<a class="anchor-link" href="#5.3-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-num&#233;ricas-ap&#243;s-data-munging/wrangling">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -18154,12 +17942,19 @@ dtype: int64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.4-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas-ap&#243;s-data-munging/wrangling">5.4 Sum&#225;rio das vari&#225;veis categ&#243;ricas ap&#243;s data munging/wrangling<a class="anchor-link" href="#5.4-Sum&#225;rio-das-vari&#225;veis-categ&#243;ricas-ap&#243;s-data-munging/wrangling">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sumário estatístico final das variáveis categóricas</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sumário final das variáveis categóricas</span>
 <span class="n">summ_cat2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="n">summ_cat2</span><span class="p">[</span><span class="s1">&#39;Tipo de Dado&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">values</span>
 <span class="n">summ_cat2</span><span class="p">[</span><span class="s1">&#39;# Registros Não Nulos&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_cat</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
