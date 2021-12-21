@@ -13082,7 +13082,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="DQR-&#8211;-Data-Quality-Report">DQR &#8211; Data Quality Report<a class="anchor-link" href="#DQR-&#8211;-Data-Quality-Report">&#182;</a></h1>
+<h1 id="DQR-&#8211;-Data-Quality-Report">DQR &#8211; Data Quality Report<a class="anchor-link" href="#DQR-&#8211;-Data-Quality-Report">&#182;</a></h1><h4 id="Property-Valuation">Property Valuation<a class="anchor-link" href="#Property-Valuation">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Portfólio Thiago Gonçalves Custódio</em></p>
+
 </div>
 </div>
 </div>
@@ -13105,14 +13113,6 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Portfólio Thiago Gonçalves Custódio</em></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="1.-Defini&#231;&#227;o-do-Problema">1. Defini&#231;&#227;o do Problema<a class="anchor-link" href="#1.-Defini&#231;&#227;o-do-Problema">&#182;</a></h2>
 </div>
 </div>
@@ -13120,8 +13120,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A empresa precisa de um relatório que demonstre que os dados são confiáveis 
-e coerentes e que a qualidade da informação que eles oferecem pode ser usada para modelos de previsão de fraudes e valor do imóvel. Sendo assim apresentaremos um DQR – Data Quality Report.</p>
+<p>Uma empresa imobiliaria americana precisa de um relatório que demonstre que os dados são confiáveis e coerentes e que a qualidade da informação que eles oferecem pode ser usada para modelos de previsão de fraudes e valor do imóvel. Sendo assim apresentaremos um <strong>DQR – Data Quality Report</strong>.</p>
 
 </div>
 </div>
@@ -13136,9 +13135,8 @@ e coerentes e que a qualidade da informação que eles oferecem pode ser usada p
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Para este projeto usaremos dados reais disponíveis publicamente. Os dados podem ser 
-baixados no portal de dados abertos da Cidade de Nova Iorque:</p>
-<p><a href="https://data.cityofnewyork.us/Housing-Development/Property-Valuation-and-Assessment-Data/rgy2-tti8">https://data.cityofnewyork.us/Housing-Development/Property-Valuation-and-Assessment-Data/rgy2-tti8</a></p>
+<p>Para este projeto usaremos dados publicos da cidade de <em>New York</em>. Os dados podem ser baixados no portal de dados abertos da cidade <a href="https://data.cityofnewyork.us/Housing-Development/Property-Valuation-and-Assessment-Data/rgy2-tti8"><strong>NYC Open Data</strong></a>.</p>
+<p>A descrição do que representa cada variável pode ser obtida ao baixar o Dataset no portal <a href="https://data.cityofnewyork.us/Housing-Development/Property-Valuation-and-Assessment-Data/rgy2-tti8"><strong>NYC Open Data</strong></a> e de forma complementar no portal <a href="https://www1.nyc.gov/site/finance/taxes/definitions-of-property-assessment-terms.page"><strong>NYC Department of Finance</strong></a>.</p>
 
 </div>
 </div>
@@ -13155,15 +13153,17 @@ baixados no portal de dados abertos da Cidade de Nova Iorque:</p>
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install -q -U watermark
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importando biblioteca, para ocultar Future Warnings.</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span> <span class="o">=</span> <span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span> <span class="o">=</span> <span class="ne">FutureWarning</span><span class="p">)</span>
 
-<span class="c1"># Imports</span>
+<span class="c1"># Importando bibliotecas, para a manipulação e exploração dos conjuntos de dados.</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Importando bibliotecas, para Análise Exploratória.</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">x</span><span class="p">)</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
@@ -13222,13 +13222,6 @@ pandas    : 1.2.2
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="3.-An&#225;lise-Explorat&#243;ria-do-DataSet">3. An&#225;lise Explorat&#243;ria do DataSet<a class="anchor-link" href="#3.-An&#225;lise-Explorat&#243;ria-do-DataSet">&#182;</a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -13262,6 +13255,28 @@ pandas    : 1.2.2
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Verificamos a existência de <strong>31</strong> variáveis, e <strong>1.070.994</strong> observações dentro do dataset.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="3.-Data-Munging---Preparando-dados-para-a-an&#225;lise-explorat&#243;ria">3. Data Munging - Preparando dados para a an&#225;lise explorat&#243;ria<a class="anchor-link" href="#3.-Data-Munging---Preparando-dados-para-a-an&#225;lise-explorat&#243;ria">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.1-Vis&#227;o-geral-dos-dados">3.1 Vis&#227;o geral dos dados<a class="anchor-link" href="#3.1-Vis&#227;o-geral-dos-dados">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -13701,6 +13716,13 @@ memory usage: 261.5+ MB
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.2-Definindo-tipo-das-colunas-para-facilitar-a-execu&#231;&#227;o-da-etapa-de-An&#225;lise-Explorat&#243;ria.">3.2 Definindo tipo das colunas para facilitar a execu&#231;&#227;o da etapa de <em>An&#225;lise Explorat&#243;ria</em>.<a class="anchor-link" href="#3.2-Definindo-tipo-das-colunas-para-facilitar-a-execu&#231;&#227;o-da-etapa-de-An&#225;lise-Explorat&#243;ria.">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -13765,6 +13787,13 @@ memory usage: 261.5+ MB
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.3-Reorganizando-os-Datasets.">3.3 Reorganizando os Datasets.<a class="anchor-link" href="#3.3-Reorganizando-os-Datasets.">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -13779,6 +13808,20 @@ memory usage: 261.5+ MB
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="4.-An&#225;lise-Explorat&#243;ria">4. An&#225;lise Explorat&#243;ria<a class="anchor-link" href="#4.-An&#225;lise-Explorat&#243;ria">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.1-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-num&#233;ricas.">4.1 Sum&#225;rio estat&#237;stico das vari&#225;veis num&#233;ricas.<a class="anchor-link" href="#4.1-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-num&#233;ricas.">&#182;</a></h3>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -14026,8 +14069,15 @@ memory usage: 261.5+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Observando o sumário estatístico das variáveis numéricas, percebemos 4 das 14 variáveis (28,6%) com baixo % populado.</p>
+<p>Observando o sumário estatístico das variáveis numéricas, percebemos <strong>4</strong> das <strong>14</strong> variáveis <strong>(28,6%)</strong> com baixo % populado.</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.2-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-categ&#243;ricas.">4.2 Sum&#225;rio estat&#237;stico das vari&#225;veis categ&#243;ricas.<a class="anchor-link" href="#4.2-Sum&#225;rio-estat&#237;stico-das-vari&#225;veis-categ&#243;ricas.">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14265,7 +14315,7 @@ memory usage: 261.5+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Observando o sumário estatístico das variáveis categóricas, percebemos 5 das 17 variáveis (29,4%) com baixo % populado.</p>
+<p>Observando o sumário estatístico das variáveis categóricas, percebemos <strong>5</strong> das <strong>17</strong> variáveis <strong>(29,4%)</strong> com baixo % populado.</p>
 
 </div>
 </div>
@@ -14273,15 +14323,7 @@ memory usage: 261.5+ MB
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="3.1-Identifica&#231;&#227;o,-Explora&#231;&#227;o-e-Visualiza&#231;&#227;o-das-Vari&#225;veis">3.1 Identifica&#231;&#227;o, Explora&#231;&#227;o e Visualiza&#231;&#227;o das Vari&#225;veis<a class="anchor-link" href="#3.1-Identifica&#231;&#227;o,-Explora&#231;&#227;o-e-Visualiza&#231;&#227;o-das-Vari&#225;veis">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Tendo por objetivo avaliar se o DataSet pode ser usado para modelos de previsão de fraudes e valor do imóvel, definimos por estratégia de relevância explorar a visualização apenas das variáveis acima de 90% populadas, uma vez que estratégias de imputação junto as variáveis de baixo valor populadas aqui descartadas, seria praticamente inviável.</p>
-
+<h3 id="4.3-Identifica&#231;&#227;o,-Explora&#231;&#227;o-e-Visualiza&#231;&#227;o-das-Vari&#225;veis-Relevantes">4.3 Identifica&#231;&#227;o, Explora&#231;&#227;o e Visualiza&#231;&#227;o das Vari&#225;veis Relevantes<a class="anchor-link" href="#4.3-Identifica&#231;&#227;o,-Explora&#231;&#227;o-e-Visualiza&#231;&#227;o-das-Vari&#225;veis-Relevantes">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -14550,8 +14592,8 @@ memory usage: 261.5+ MB
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 1</strong> \
-Nome da Variável: BBLE \
-Descrição: Concatenação de código Borough, código de bloco, código LOT; um número exclusivo para cada registro.</p>
+<strong>Nome da Variável</strong>: BBLE \
+<strong>Descrição</strong>: Concatenação de código Borough, código de bloco, código LOT; um número exclusivo para cada registro.</p>
 
 </div>
 </div>
@@ -14669,8 +14711,8 @@ Descrição: Concatenação de código Borough, código de bloco, código LOT; u
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 2</strong> \
-Nome da Variável: B \
-Descrição: Códigos Borough</p>
+<strong>Nome da Variável</strong>: B \
+<strong>Descrição</strong>: Códigos Borough</p>
 
 </div>
 </div>
@@ -14731,8 +14773,8 @@ Descrição: Códigos Borough</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 3</strong> \
-Nome da Variável: BLOCK \
-Descrição: Número de até 5 dígitos que representam códigos de bloco em diferentes bairros</p>
+<strong>Nome da Variável</strong>: BLOCK \
+<strong>Descrição</strong>: Número de até 5 dígitos que representam códigos de bloco em diferentes bairros</p>
 
 </div>
 </div>
@@ -14850,8 +14892,8 @@ Descrição: Número de até 5 dígitos que representam códigos de bloco em dif
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 4</strong> \
-Nome da Variável: LOT \
-Descrição: Número de até 4 dígitos que representam códigos de lote em diferentes Borough &amp; Block</p>
+<strong>Nome da Variável</strong>: LOT \
+<strong>Descrição</strong>: Número de até 4 dígitos que representam códigos de lote em diferentes Borough &amp; Block</p>
 
 </div>
 </div>
@@ -14969,8 +15011,8 @@ Descrição: Número de até 4 dígitos que representam códigos de lote em dife
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 5</strong> \
-Nome da Variável: OWNER \
-Descrição: Proprietários dos imóveis</p>
+<strong>Nome da Variável</strong>: OWNER \
+<strong>Descrição</strong>: Proprietários dos imóveis</p>
 
 </div>
 </div>
@@ -15157,8 +15199,8 @@ Descrição: Proprietários dos imóveis</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 6</strong> \
-Nome da Variável: BLDGCL \
-Descrição: Classe do imóvel</p>
+<strong>Nome da Variável</strong>: BLDGCL \
+<strong>Descrição</strong>: Classe do imóvel</p>
 
 </div>
 </div>
@@ -15345,8 +15387,8 @@ Descrição: Classe do imóvel</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 7</strong> \
-Nome da Variável: TAXCLASS \
-Descrição: Código de classe de imposto de propriedade</p>
+<strong>Nome da Variável</strong>: TAXCLASS \
+<strong>Descrição</strong>: Código de classe de imposto de propriedade</p>
 
 </div>
 </div>
@@ -15408,8 +15450,8 @@ Descrição: Código de classe de imposto de propriedade</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 8</strong> \
-Nome da Variável: LTFRONT \
-Descrição: Frente do lote em pés (feet)</p>
+<strong>Nome da Variável</strong>: LTFRONT \
+<strong>Descrição</strong>: Frente do lote em pés (feet)</p>
 
 </div>
 </div>
@@ -15526,8 +15568,8 @@ Name: LTFRONT, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 9</strong> \
-Nome da Variável: LTDEPTH \
-Descrição: Profundidade do lote em pés (feet)</p>
+<strong>Nome da Variável</strong>: LTDEPTH \
+<strong>Descrição</strong>: Profundidade do lote em pés (feet)</p>
 
 </div>
 </div>
@@ -15649,8 +15691,8 @@ Name: LTDEPTH, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 10</strong>  \
-Nome da Variável: STORIES \
-Descrição: Número de andares do edifício</p>
+<strong>Nome da Variável</strong>: STORIES \
+<strong>Descrição</strong>: Número de andares do edifício</p>
 
 </div>
 </div>
@@ -15768,8 +15810,8 @@ Name: STORIES, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 11</strong> \
-Nome da Variável: FULLVAL \
-Descrição: Valor de Mercado Total</p>
+<strong>Nome da Variável</strong>: FULLVAL \
+<strong>Descrição</strong>: Valor de Mercado Total</p>
 
 </div>
 </div>
@@ -15926,8 +15968,8 @@ Name: FULLVAL, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 12</strong> \
-Nome da Variável: AVLAND \
-Descrição: Valor de mercado do terreno</p>
+<strong>Nome da Variável</strong>: AVLAND \
+<strong>Descrição</strong>: Valor de mercado do terreno</p>
 
 </div>
 </div>
@@ -16044,8 +16086,8 @@ Name: AVLAND, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 13</strong> \
-Nome da Variável: AVTOT \
-Descrição: Valor Total</p>
+<strong>Nome da Variável</strong>: AVTOT \
+<strong>Descrição</strong>: Valor Total</p>
 
 </div>
 </div>
@@ -16162,8 +16204,8 @@ Name: AVTOT, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 14</strong> \
-Nome da Variável: EXLAND \
-Descrição: Valor provisório do terreno com isenção temporária</p>
+<strong>Nome da Variável</strong>: EXLAND \
+<strong>Descrição</strong>: Valor provisório do terreno com isenção temporária</p>
 
 </div>
 </div>
@@ -16281,8 +16323,8 @@ Name: EXLAND, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 15</strong> \
-Nome da Variável: EXTOT \
-Descrição: Valor total do terreno com isenção temporária</p>
+<strong>Nome da Variável</strong>: EXTOT \
+<strong>Descrição</strong>: Valor total do terreno com isenção temporária</p>
 
 </div>
 </div>
@@ -16400,8 +16442,8 @@ Name: EXTOT, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 16</strong> \
-Nome da Variável: STADDR \
-Descrição: Endereço das propriedades</p>
+<strong>Nome da Variável</strong>: STADDR \
+<strong>Descrição</strong>: Endereço das propriedades</p>
 
 </div>
 </div>
@@ -16638,8 +16680,8 @@ Descrição: Código postal das propriedades</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 18</strong> \
-Nome da Variável: BLDFRONT \
-Descrição: Frente do lote em pés.</p>
+<strong>Nome da Variável</strong>: BLDFRONT \
+<strong>Descrição</strong>: Frente do lote em pés.</p>
 
 </div>
 </div>
@@ -16757,8 +16799,8 @@ Name: BLDFRONT, dtype: float64</pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Variável 19</strong> \
-Nome da Variável: BLDDEPTH \
-Descrição: Profundidade do lote em pés.</p>
+<strong>Nome da Variável</strong>: BLDDEPTH \
+<strong>Descrição</strong>: Profundidade do lote em pés.</p>
 
 </div>
 </div>
@@ -16875,14 +16917,14 @@ Name: BLDDEPTH, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="4.-Limpeza-e-Transforma&#231;&#227;o-dos-Dados">4. Limpeza e Transforma&#231;&#227;o dos Dados<a class="anchor-link" href="#4.-Limpeza-e-Transforma&#231;&#227;o-dos-Dados">&#182;</a></h2>
+<h2 id="5.-Limpeza-e-Transforma&#231;&#227;o-dos-Dados">5. Limpeza e Transforma&#231;&#227;o dos Dados<a class="anchor-link" href="#5.-Limpeza-e-Transforma&#231;&#227;o-dos-Dados">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Nesta etapa entregaremos uma rotina de limpeza das variáveis STADDR, OWNER, STORIES e uma estratégia de transformação / imputação nos valores ausentes da variável ZIP com objetivo de demonstração de possibilidade / alternativa de data munging/wrangling.</p>
+<p>Nesta etapa entregaremos uma <strong>rotina de limpeza das variáveis STADDR, OWNER, STORIES</strong> e uma <strong>estratégia de transformação / imputação nos valores ausentes da variável ZIP</strong> com objetivo de demonstração de possibilidade / alternativa de data munging/wrangling.</p>
 
 </div>
 </div>
@@ -17151,7 +17193,7 @@ Name: BLDDEPTH, dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.1.-Limpeza-dos-Valores-Ausentes-das-Vari&#225;veis-STADDR,-OWNER-e-STORIES">4.1. Limpeza dos Valores Ausentes das Vari&#225;veis STADDR, OWNER e STORIES<a class="anchor-link" href="#4.1.-Limpeza-dos-Valores-Ausentes-das-Vari&#225;veis-STADDR,-OWNER-e-STORIES">&#182;</a></h3>
+<h3 id="5.1.-Limpeza-dos-Valores-Ausentes-das-Vari&#225;veis-STADDR,-OWNER-e-STORIES">5.1. Limpeza dos Valores Ausentes das Vari&#225;veis STADDR, OWNER e STORIES<a class="anchor-link" href="#5.1.-Limpeza-dos-Valores-Ausentes-das-Vari&#225;veis-STADDR,-OWNER-e-STORIES">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -17277,7 +17319,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="4.2.-Transforma&#231;&#227;o-dos-Valores-Ausentes-da-Vari&#225;vel-ZIP">4.2. Transforma&#231;&#227;o dos Valores Ausentes da Vari&#225;vel ZIP<a class="anchor-link" href="#4.2.-Transforma&#231;&#227;o-dos-Valores-Ausentes-da-Vari&#225;vel-ZIP">&#182;</a></h3>
+<h3 id="5.2.-Transforma&#231;&#227;o-dos-Valores-Ausentes-da-Vari&#225;vel-ZIP">5.2. Transforma&#231;&#227;o dos Valores Ausentes da Vari&#225;vel ZIP<a class="anchor-link" href="#5.2.-Transforma&#231;&#227;o-dos-Valores-Ausentes-da-Vari&#225;vel-ZIP">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -18320,14 +18362,14 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="5.-Conclus&#227;o">5. Conclus&#227;o<a class="anchor-link" href="#5.-Conclus&#227;o">&#182;</a></h2>
+<h2 id="6.-Conclus&#227;o">6. Conclus&#227;o<a class="anchor-link" href="#6.-Conclus&#227;o">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sim, a quantidade de variáveis disponíveis no DataSet bem como seus respectivos preenchimentos permitem seu uso em modelos de previsão de fraudes e valor do imóvel, desde que realizada ações de limpeza e transformação em parte dados conforme exemplificamos.</p>
+<p>Entregamos um DQR – Data Quality Report com sumários executivos por tipo de variável bem como análise descritiva das mais relevantes ou com maior % de preenchimento. De forma adicional aplicamos rotina de limpeza e estratégia de imputação para algumas variáveis e finalizamos concluindo que o Dataset possui variáveis relevantes para uso em modelos de previsão de fraudes e valor do imóvel.</p>
 
 </div>
 </div>
